@@ -16,14 +16,14 @@ do
     //Validate your user inputs throughout your app. Try catch blocks, if statements, or any
     //other method of validation is good.
 
-    Console.WriteLine($"Hi {name}, would you like to play against Rock Player or Random Player?");
+    Console.WriteLine($"Hi {name}, would you like to play against Laura or Jon?");
     string opponentChoice = Console.ReadLine();
     Console.WriteLine();
 
     
     int humanValue = -1;
-    HumanPlayer Bob = new HumanPlayer();
-    Roshambo humanPlayerResult = Bob.GenerateRoshambo();
+    HumanPlayer User = new HumanPlayer();
+    Roshambo humanPlayerResult = User.GenerateRoshambo();
     humanValue = (int)humanPlayerResult;
 
     int rockValue = -1;
@@ -31,19 +31,19 @@ do
 
     switch (opponentChoice)
     {
-        case "Rock Player":
-            RockPlayer Peter = new RockPlayer();
-            Roshambo rockPlayerResult = Peter.GenerateRoshambo();
+        case "Jon":
+            RockPlayer Jon = new RockPlayer();
+            Roshambo rockPlayerResult = Jon.GenerateRoshambo();
 
-            Console.WriteLine($"Your opponent chose {Peter.GenerateRoshambo()}.");
+            Console.WriteLine($"Your opponent chose {Jon.GenerateRoshambo()}.");
             rockValue = (int)rockPlayerResult;
             break;
 
-        case "Random Player":
-            RandomPlayer Frank = new RandomPlayer();
-            Roshambo randomPlayerResult = Frank.GenerateRoshambo();
+        case "Laura":
+            RandomPlayer Laura = new RandomPlayer();
+            Roshambo randomPlayerResult = Laura.GenerateRoshambo();
 
-            Console.WriteLine($"Your opponent chose {Frank.GenerateRoshambo()}.");
+            Console.WriteLine($"Your opponent chose {Laura.GenerateRoshambo()}.");
             randomValue = (int)randomPlayerResult;
             break;
     }
