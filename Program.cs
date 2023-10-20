@@ -1,6 +1,4 @@
-﻿//retry of Roshambo Lab
-
-using redo_of_Roshambo;
+﻿using redo_of_Roshambo;
 
 bool keepPlaying;
 Console.WriteLine("Please enter your name:");
@@ -21,7 +19,7 @@ do
     Console.WriteLine();
 
     
-    int humanValue = -1;
+    int humanValue = -2;
     HumanPlayer User = new HumanPlayer();
     Roshambo humanPlayerResult = User.GenerateRoshambo();
     humanValue = (int)humanPlayerResult;
@@ -37,6 +35,7 @@ do
 
             Console.WriteLine($"Your opponent chose {Jon.GenerateRoshambo()}.");
             rockValue = (int)rockPlayerResult;
+
             break;
 
         case "Laura":
@@ -45,10 +44,12 @@ do
 
             Console.WriteLine($"Your opponent chose {Laura.GenerateRoshambo()}.");
             randomValue = (int)randomPlayerResult;
-            break;
+
+           break;
     }
 
-    DetermineResult();
+    DetermineRandomResult(randomValue, humanValue);
+    DetermineRockResult(rockValue, humanValue);
 
     //The application continues until the user doesn’t want to play anymore.
     Console.WriteLine("Do you want to play again? (y/n)");
@@ -62,7 +63,7 @@ do
 
 
 
-    string DetermineResult()
+    string DetermineRandomResult(int randomValue, int humanValue)
     {
         if (randomValue != -1)
         {
@@ -91,7 +92,15 @@ do
             { return "Lizard"; }
 
         }
-        else if (rockValue != -1)
+
+        else { return "Good game!"; }
+
+    }
+
+
+    string DetermineRockResult(int rockValue, int humanValue)
+    {
+     if (rockValue != -1)
         {
             if (rockValue == humanValue)
             { return "You tie!"; }
@@ -107,8 +116,9 @@ do
 
         }
 
-        else { return "Lizard!"; }
+        else { return "Good game!"; }
 
     }
+
 
 } while (keepPlaying = true);
