@@ -36,6 +36,22 @@ do
             Console.WriteLine($"Your opponent chose {Jon.GenerateRoshambo()}.");
             rockValue = (int)rockPlayerResult;
 
+            if (rockValue != -1)
+            {
+                if (rockValue == humanValue)
+                { Console.WriteLine("You tie!"); }
+
+                else if (rockValue == 1 && humanValue == 2)
+                { Console.WriteLine("You win!"); }
+
+                else if (rockValue == 1 && humanValue == 3)
+                { Console.WriteLine("You lost!"); }
+
+                else //user shouldn't see this
+                { Console.WriteLine("Lizard!"); }
+
+            }
+
             break;
 
         case "Laura":
@@ -45,11 +61,36 @@ do
             Console.WriteLine($"Your opponent chose {Laura.GenerateRoshambo()}.");
             randomValue = (int)randomPlayerResult;
 
-           break;
+            if (randomValue != -1)
+            {
+                if (randomValue == humanValue)
+                { Console.WriteLine("You tied!"); }
+
+                else if (randomValue == 1 && humanValue == 2)
+                { Console.WriteLine("You win!"); }
+
+                else if (randomValue == 2 && humanValue == 3)
+                { Console.WriteLine("You lost!"); }
+
+                else if (randomValue == 3 && humanValue == 1)
+                { Console.WriteLine("You win!"); }
+
+                else if (randomValue == 1 && humanValue == 3)
+                { Console.WriteLine("You lost!"); }
+
+                else if (randomValue == 2 && humanValue == 1)
+                { Console.WriteLine("You lost!"); }
+
+                else if (randomValue == 3 && humanValue == 2)
+                { Console.WriteLine("You lost!"); }
+
+                else //user shouldn't see this
+                { Console.WriteLine("Lizard"); }
+            }
+
+                break;
     }
 
-    DetermineRandomResult(randomValue, humanValue);
-    DetermineRockResult(rockValue, humanValue);
 
     //The application continues until the user doesn’t want to play anymore.
     Console.WriteLine("Do you want to play again? (y/n)");
@@ -60,10 +101,14 @@ do
     else if (yesno == "n")
     { keepPlaying = false; }
 
+} while (keepPlaying = true) ;
 
 
 
-    string DetermineRandomResult(int randomValue, int humanValue)
+    /*        DetermineRandomResult(randomValue, humanValue);
+            DetermineRockResult(rockValue, humanValue);
+
+            string DetermineRandomResult(int randomValue, int humanValue)
     {
         if (randomValue != -1)
         {
@@ -120,5 +165,4 @@ do
 
     }
 
-
-} while (keepPlaying = true);
+    */
